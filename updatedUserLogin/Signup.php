@@ -22,25 +22,41 @@ include("function.php");
         $result= mysqli_query($con, $query);
         $data= mysqli_fetch_assoc($result);
         //echo $data['total'];
+        $duplicatefound = false; 
+        $query = "SELECT username  FROM user";
+        $datanames = mysqli_fetch_all(mysqli_query($con, $query), MYSQLI_ASSOC);
+        foreach($datanames as $row) {
+            //echo $row['username'] ;
+
+            if($user_name ==$row['username'] )
+            $duplicatefound=true;
+        }
         
-		if(!empty($user_name)&& !empty($password)&& !is_numeric($user_name))
-		{
+        
+        if(!$duplicatefound)
+        {
+            //echo ($datanames[0]) ;
+            if(!empty($user_name)&& !empty($password)&& !is_numeric($user_name))
+            {
 
-             
+                
 
-			$id= $data['total'] +1;
-            //$password = password_hash('$password' , PASSWORD_DEFAULT);
-			$query = "insert into user(id,username,password,firstName,lastName,email) values ('$id','$user_name','$password','$fname','$lname','$email')";
-			mysqli_query($con, $query);
-			
-			header("Location: index.html");
-			die; 
-		}
-		else
-		{
+                $id= $data['total'] +1;
+                //$password = password_hash('$password' , PASSWORD_DEFAULT);
+                $query = "insert into user(id,username,password,firstName,lastName,email) values ('$id','$user_name','$password','$fname','$lname','$email')";
+                mysqli_query($con, $query);
+                
+                header("Location: index.html");
+                die; 
+            }
+            else
+            {
 
-			echo "Please enter something valid";
-		}
+                echo "Please enter something valid";
+            }
+        }
+        else
+        echo "Pick an original username";
 	}
 
 
