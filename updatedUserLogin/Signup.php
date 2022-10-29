@@ -23,12 +23,12 @@ include("function.php");
         $data= mysqli_fetch_assoc($result);
         //echo $data['total'];
         $duplicatefound = false; 
-        $query = "SELECT username  FROM user";
+        $query = "SELECT username, email  FROM user";
         $datanames = mysqli_fetch_all(mysqli_query($con, $query), MYSQLI_ASSOC);
         foreach($datanames as $row) {
             //echo $row['username'] ;
 
-            if($user_name ==$row['username'] )
+            if($user_name ==$row['username'] || $email == $row['email'])
             $duplicatefound=true;
         }
         
@@ -56,7 +56,7 @@ include("function.php");
             }
         }
         else
-        echo "Pick an original username";
+        echo "Pick an original username/email";
 	}
 
 
