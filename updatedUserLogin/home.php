@@ -28,7 +28,7 @@ if (!isset($_SESSION['loggedin'])) {
 			<h2>Home Page</h2>
 			<p>Welcome back, <?=$_SESSION['name']?>!</p>
 		</div>
-		<form action="">
+		<form action="initialtable.php">
 				<input type="submit" value="Initialize database">
 			</form>
 	</body>
