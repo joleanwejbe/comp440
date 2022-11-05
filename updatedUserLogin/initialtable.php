@@ -2,11 +2,15 @@
 include("connections.php");
 //drops table
 // Create database
-$sql = "";
-$query = "Drop Table user";
-mysqli_query($con, $query);
+$sql = "Drop schema IF EXISTS phplogin;";
 
+mysqli_query($con, $sql);
 
+$sql = "Create schema IF not EXISTS phplogin;";
+mysqli_query($con, $sql);
+
+$sql = "use phplogin";
+mysqli_query($con, $sql);
 
 $query = " CREATE TABLE IF NOT EXISTS user (
     id int(11) NOT NULL AUTO_INCREMENT,
