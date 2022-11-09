@@ -1,7 +1,10 @@
 YouTube URL: ________
 
 Project: Phase 1 - User Login
-Team #1: Jolean Wejbe, Maya Zeng, Vardan Torosyan
+Team #1: 
+- Jolean Wejbe
+- Maya Zeng
+- Vardan Torosyan
 Class: Comp 440 Database Design
 Date: 10/20/22 
 
