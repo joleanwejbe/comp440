@@ -5,7 +5,9 @@ Team #1:
 - Jolean Wejbe
 - Maya Zeng
 - Vardan Torosyan
+
 Class: Comp 440 Database Design
+
 Date: 10/20/22 
 
 Phase 1: Utlizes PHP and SQL to accomplish the following- 
@@ -24,7 +26,8 @@ Additionally, unmatching passwords are detected.
 
 Team Contributions: 
 
-Jolean Wejbe: Created github for project...  
+Jolean Wejbe: 
+- Created github for project...  
 
 Maya Zeng: 
 
