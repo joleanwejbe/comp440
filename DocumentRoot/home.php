@@ -32,6 +32,9 @@ if (!isset($_SESSION['loggedin'])) {
 			<form action="initialtable.php">
                 	<input type="submit" value="Initialize database">
             		</form>
+			<form action="RegisterBlog.php">
+                	<input type="submit" value="Register blog">
+            </form>
 		</div>
 	</body>
 </html>

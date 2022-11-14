@@ -16,3 +16,24 @@ function random_num($length)
     }
     return $text; 
 }
+
+
+
+function CanIPostABlog($DatesnNames, $Currentuser )
+{
+    
+    $count = 0; 
+    //echo $count; 
+    foreach($DatesnNames as $row) {
+        if($row['created_by']==$Currentuser)
+        $count++; 
+
+        //echo $count; 
+        
+    }
+    if($count==2)
+    return false; 
+    else
+    return true; 
+
+}

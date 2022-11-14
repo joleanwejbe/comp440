@@ -1,9 +1,9 @@
 <?php
 
 // Change this to your connection info.
-$DATABASE_HOST = 'a53d1c5f5b42'; // this needs to be changed to the mariadb name from docker container
+$DATABASE_HOST = 'localhost:4306';
 $DATABASE_USER = 'root';
-$DATABASE_PASS = 'rootpwd';
+$DATABASE_PASS = '';
 $DATABASE_NAME = 'phplogin';
 // Try and connect using the info above.
 
