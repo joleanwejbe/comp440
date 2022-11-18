@@ -20,20 +20,27 @@ if (!isset($_SESSION['loggedin'])) {
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>COMP 440 Database Design Fall 2022</h1>
+				<a href="home.php"><h1> COMP 440 Database Design Fall 2022</h1></a>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href= "blogs.php"><i class='fas fa-book'></i>Blogs</a>
+				<a href="blog.php"><i class="fas fa-newspaper"></i>Blog</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
 		<div class="content">
 			<h2>Home Page</h2>
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
+			<p>Welcome back, <?=$_SESSION['username']?>!</p>
 		
 			<form action="initialtable.php">
 
-                	<input type="submit" value="Initialize database" class="login-button">
+                	<input type="submit" value="Initialize database" >
             		</form>
+			
+                        <input type="submit" value="List All Blogs Created by User" >
+                        <input type="submit" value="List Users with the Most Comments" >
+                        <input type="submit" value="Who's Following Who" >
+                        <input type="submit" value="List Users Who Never Posted a Blog">
+			<input type="submit" value="Users with Blogs that have no Negative Comments" >
+			<input type="submit" value="Pair of Users with the Same Hobby" >
 		</div>
 	</body>
 </html>

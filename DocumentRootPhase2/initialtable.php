@@ -36,6 +36,8 @@ $blogsTable = " CREATE TABLE blogs (
   	REFERENCES users(username)
 )ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;";
 
+
+
 $blogTagsTable = "CREATE TABLE blogstags (
   blogid int(10) unsigned NOT NULL,
   tag varchar(20) NOT NULL,
@@ -77,8 +79,9 @@ CONSTRAINT hobbies_ibfk_1 FOREIGN KEY (`username`) REFERENCES users (`username`)
 
 
 $tables = [$usersTable, $blogsTable, $blogTagsTable,$commentsTable,$followsTable,$hobbiesTable];
+$tables1 = [$usersTable];
 $errorOutput = "SHOW ENGINE INNODB STATUS;"; 
-foreach($tables as $k => $sql)
+foreach($tables1 as $k => $sql)
 {
 
       if(mysqli_query($con, $sql) ==FALSE)
@@ -100,8 +103,9 @@ $followsQuery  = "INSERT INTO follows VALUES ('jsmith','bob'),('batman','catlove
 $hobbiesQuery = "INSERT INTO hobbies VALUES ('batman','movie'),('bob','movie'),('catlover','movie'),('doglover','hiking'),('jdoe','dancing'),('jdoe','movie'),('jsmith','hiking'),('matty','bowling'),('notbob','calligraphy'),('pacman','dancing'),('pacman','movie'),('scooby','cooking');";
 
 $insert = [$userQuery, $blogQuery, $blogTagsQuery, $commentsQuery, $followsQuery, $hobbiesQuery];
+$insert1 = [$userQuery];
 
-foreach($insert as $k => $sql)
+foreach($insert1 as $k => $sql)
 {
 
 

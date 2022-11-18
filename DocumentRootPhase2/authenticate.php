@@ -1,5 +1,4 @@
 <?php
-
 // Change this to your connection info.
 $DATABASE_HOST = '9d86237fac4b'; // this needs to be changed to the mariadb name from docker container
 $DATABASE_USER = 'root';

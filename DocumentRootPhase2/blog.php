@@ -1,6 +1,45 @@
 <?php
-
+ob_start();
 session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<mset="utf-8">
+		<title>Blogs Page</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<a href="home.php"><h1> COMP 440 Database Design Fall 2022</h1></a>
+				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+				<a href="blog.php"><i class="fas fa-newspaper"></i>Blog</a>
+				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+
+			</div>
+		</nav>
+
+		<div class="content">
+			<h2> Blog List </h2>
+			</br>
+			<?php 
+			if(isset($_SESSION['postSubmit']))
+		        {
+                	echo "<td width='80' class='center'>" . $_SESSION['postSubmit'] . "</td>";
+                	unset($_SESSION['postSubmit']);
+        		}
+
+			?>
+ 			<form action="blogpost.html" method="post">
+			<input type="submit" name="submitblog" value="Create New Blog Post" class= "login-button">
+			</form>
+</html>
+
+<?php
+
 
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');

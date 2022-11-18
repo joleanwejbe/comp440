@@ -13,7 +13,7 @@ $query = "SELECT password,email FROM `users` WHERE username='$username'";
 
 $stmt = $con->prepare($query);
 // In this case we can use the account ID to get the account info.
-$stmt->bind_param('i', $_SESSION['username']);
+//$stmt->bind_param();
 $stmt->execute();
 $stmt->bind_result($password, $email);
 $stmt->fetch();
@@ -30,9 +30,9 @@ $stmt->close();
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>Profile</h1>
+				<a href="home.php"><h1> COMP 440 Database Design Fall 2022</h1></a>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="blog.php"><i class="fas fa-user-circle"></i>Blog</a>
+				<a href="blog.php"><i class="fas fa-newspaper"></i>Blog</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
@@ -43,7 +43,7 @@ $stmt->close();
 				<table>
 					<tr>
 						<td>Username:</td>
-						<td><?=$_SESSION['name']?></td>
+						<td><?=$_SESSION['username']?></td>
 					</tr>
 					<tr>
 						<td>Password:</td>

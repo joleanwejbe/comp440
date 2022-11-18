@@ -31,7 +31,7 @@ body {
 .blog h1 {
   	text-align: center;
   	color: #5b6574;
-  	font-size: 24px;
+  	font-size: 20px;
   	padding: 20px 0 20px 0;
   	border-bottom: 1px solid #dee0e4;
 }
@@ -196,3 +196,35 @@ body.loggedin {
 	padding: 5px;
 	margin: 0 0 10px 0;
 }
+.content form input[type="submit"] {
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        background-color: #3274d6;
+        border: 0;
+        cursor: pointer;
+        font-weight: bold;
+        color: #ffffff;
+        transition: background-color 0.2s;
+}
+.content form input[type="submit"]:hover {
+        background-color: #2868c7;
+        transition: background-color 0.2s;
+}
+
+.content input[type="submit"] {
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        background-color: #3274d6;
+        border: 0;
+        cursor: pointer;
+        font-weight: bold;
+        color: #ffffff;
+        transition: background-color 0.2s;
+}
+.content input[type="submit"]:hover {
+        background-color: #2868c7;
+        transition: background-color 0.2s;
+}
+
