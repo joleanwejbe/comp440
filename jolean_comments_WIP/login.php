@@ -8,7 +8,7 @@
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
         // Check user is exist in the database
-        $query    = "SELECT * FROM `user` WHERE username='$username'
+        $query    = "SELECT * FROM `users` WHERE username='$username'
                      AND password='$password'";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
 

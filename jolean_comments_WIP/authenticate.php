@@ -1,9 +1,7 @@
 <?php
 
-session_start();
-
 // Change this to your connection info.
-$DATABASE_HOST = 'localhost';
+$DATABASE_HOST = 'localhost'; // this needs to be changed to the mariadb name from docker container
 $DATABASE_USER = 'root';
 $DATABASE_PASS = 'mysql';
 $DATABASE_NAME = 'phplogin';

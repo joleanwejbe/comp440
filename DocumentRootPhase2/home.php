@@ -22,7 +22,7 @@ if (!isset($_SESSION['loggedin'])) {
 			<div>
 				<h1>COMP 440 Database Design Fall 2022</h1>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="blog.php"><i class="fas fa-user-circle"></i>Blog</a>
+				<a href= "blogs.php"><i class='fas fa-book'></i>Blogs</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>

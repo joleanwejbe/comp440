@@ -22,7 +22,7 @@ if (!isset($_SESSION['loggedin'])) {
 			<div>
 				<h1>COMP 440 Database Design Fall 2022</h1>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href= "comments.php"><i class ="fas fa-book"></i>Blogs</a>
+				<a href="blog.php"><i class='fas fa-book'></i>Blog</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
@@ -31,11 +31,9 @@ if (!isset($_SESSION['loggedin'])) {
 			<p>Welcome back, <?=$_SESSION['name']?>!</p>
 		
 			<form action="initialtable.php">
-                	<input type="submit" value="Initialize database">
+
+                	<input type="submit" value="Initialize database" class="login-button">
             		</form>
-			<form action="RegisterBlog.php">
-                	<input type="submit" value="Register blog">
-            </form>
 		</div>
 	</body>
 </html>

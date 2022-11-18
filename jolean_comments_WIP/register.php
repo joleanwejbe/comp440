@@ -46,7 +46,7 @@
 	exit();
 	}
 
-	$queryCheck = "SELECT * FROM `user` WHERE username = '$username' OR email = '$email'";
+	$queryCheck = "SELECT * FROM `users` WHERE username = '$username' OR email = '$email'";
 	$resultDupes = mysqli_query($con, $queryCheck);
 	
 	if(mysqli_num_rows($resultDupes)){
@@ -58,7 +58,7 @@
 	}
 	else{
 
-        $query    = "INSERT into `user` (firstname, lastname, username, password, email )
+        $query    = "INSERT into `users` (firstname, lastname, username, password, email )
                      VALUES ('$firstname','$lastname','$username', '$password', '$email')";
         $result   = mysqli_query($con, $query);
         
