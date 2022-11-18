@@ -2,6 +2,7 @@
     session_start();
 
     require('authenticate.php');
+    include("function.php");
     if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit;
@@ -49,9 +50,26 @@
 	$stmt->close();
 	//echo "$tagsClean";
 
-	    $queryBlogTag = "INSERT into `blogstags`(blogid,tag)
-                     VALUES ('$blogID','$tags')";
-            $result2 = mysqli_query($con, $queryBlogTag);
+    ////vardan inserting blogtagcode here
+
+    $length = strlen($tags);
+        
+    $strarre = Returnarrayoftags($tags,$length);
+
+    foreach ($strarre as $valuee) {
+      $blogtagidcount= mysqli_fetch_assoc(mysqli_query($con, "select count(*) as total from blogstags")) ;
+      $blogtagid= $blogtagidcount["total"]+1;
+      $query = "insert into blogstags(blogid,tag) values ('$blogtagid','$valuee')";
+      mysqli_query($con, $query);  
+         }
+
+    ///vardan above
+
+
+
+	    // $queryBlogTag = "INSERT into `blogstags`(blogid,tag)
+        //              VALUES ('$blogID','$tags')";
+        //     $result2 = mysqli_query($con, $queryBlogTag);
 	    $_SESSION['postSubmit'] = 'Blog Post Successfully Submitted';
 	    header("Location: blog.php");
         }
