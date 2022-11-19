@@ -2,7 +2,6 @@
     session_start();
 
     require('authenticate.php');
-    include("function.php");
     if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit;
@@ -20,16 +19,19 @@
 
     	$tags = stripslashes($_REQUEST['tags']);
 	$tags = mysqli_real_escape_string($con, $tags);
-        //$tagsClean = implode(",",$tags);
+        $tagsClean = explode(",",$tags);
 
 	$queryCheck = "SELECT pdate FROM `blogs` WHERE pdate='$pdate'";
 	$resultDupes = mysqli_query($con, $queryCheck);
         if(mysqli_num_rows($resultDupes) > 2){
-                echo "
-                    <h3>Posted twice today.</h3>
-                    <p class='link'>Click here to see your <a href='blog.php'> blog</a> posts </p>
-                    ";
-		exit();
+                
+		$_SESSION['postSubmit'] = "Posted twice today. Maximum post limit reached.";
+		//echo "
+                //    <h3>Posted twice today.</h3>
+                //    <p class='link'>Click here to see your <a href='blog.php'> blog</a> posts </p>
+                //    ";
+		header("Location: blog.php");
+		//exit();
         }
 	    else
         {
@@ -50,27 +52,13 @@
 	$stmt->close();
 	//echo "$tagsClean";
 
-    ////vardan inserting blogtagcode here
-
-    $length = strlen($tags);
-        
-    $strarre = Returnarrayoftags($tags,$length);
-
-    foreach ($strarre as $valuee) {
-      $blogtagidcount= mysqli_fetch_assoc(mysqli_query($con, "select count(*) as total from blogstags")) ;
-      $blogtagid= $blogtagidcount["total"]+1;
-      $query = "insert into blogstags(blogid,tag) values ('$blogtagid','$valuee')";
-      mysqli_query($con, $query);  
-         }
-
-    ///vardan above
-
-
-
-	    // $queryBlogTag = "INSERT into `blogstags`(blogid,tag)
-        //              VALUES ('$blogID','$tags')";
-        //     $result2 = mysqli_query($con, $queryBlogTag);
-	    $_SESSION['postSubmit'] = 'Blog Post Successfully Submitted';
+	foreach($tagsClean as $tag)
+	{
+	    $queryBlogTag = "INSERT into `blogstags`(blogid,tag)
+                     VALUES ('$blogID','$tag')";
+            $result2 = mysqli_query($con, $queryBlogTag);
+	} 
+	   $_SESSION['postSubmit'] = 'Blog Post Successfully Submitted';
 	    header("Location: blog.php");
         }
 
