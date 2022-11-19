@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>  
 <html>
 	<head>
 		<mset="utf-8">
@@ -6,6 +6,7 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
+
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
@@ -16,12 +17,11 @@
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
+
 		<div class="content">
 			<h2>Blog Post</h2>
-</html>
 
 <?php
-
 session_start();
 
 if (!isset($_SESSION['loggedin'])) {
@@ -29,10 +29,10 @@ if (!isset($_SESSION['loggedin'])) {
 	exit;
 }
 
-
-
 require('authenticate.php');
+?>
 
+<?php 
 	$id=$_GET['id'];        // Collect data from query string
 
 	// display the blog
@@ -54,10 +54,49 @@ require('authenticate.php');
 	{
 		echo "No blog posts";
 	}
+?>
 
+<?php
+// comment form sanitize 
+$sentiment = $comment = "";
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $sentiment = test_input($_POST["sentiment"]);
+  $comment = test_input($_POST["comment"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>Comment</h2>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+  Sentiment:
+  <input type="radio" name="sentiment" value="positive">Positive
+  <input type="radio" name="sentiment" value="negative">Negative
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">  
+</form>
+
+<?php
+// temporary- display input
+echo "<h2>Your Input:</h2>";
+echo $sentiment;
+echo "<br>";
+echo "<br>";
+echo $comment;
+?>
+
+<?php
 	// display existing comments
-	$sql = "SELECT * FROM comments WHERE blogid=$id";
+	echo "<h3>All Comments:</h2>";
+	$sql = "SELECT * FROM comments WHERE blogid=$id ORDER BY cdate";
 	$result = $con->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -76,10 +115,12 @@ require('authenticate.php');
 		echo "No comments";
 	}
 
-
-
-
-
+	
+	// comment form
 
 	$con->close();
 ?>
+
+
+</body>
+</html>

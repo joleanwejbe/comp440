@@ -1,6 +1,5 @@
 <?php 
 
-
 function random_num($length)
 {
     $text =""; 
@@ -18,7 +17,6 @@ function random_num($length)
 }
 
 
-
 function CanIPostABlog($DatesnNames, $Currentuser )
 {
     
@@ -28,8 +26,7 @@ function CanIPostABlog($DatesnNames, $Currentuser )
         if($row['created_by']==$Currentuser)
         $count++; 
 
-        //echo $count; 
-        
+        //echo $count;    
     }
     if($count==2)
     return false; 
@@ -68,8 +65,6 @@ function &Returnarrayoftags($str , $length)
 
         }
 
-
-
         $count++;
 
         if($count>=$length){
@@ -81,26 +76,5 @@ function &Returnarrayoftags($str , $length)
     if($prevspot==0)
     array_push($array, $str);
 
-   
-    
-    //,apples, apple, cool, ,.,,
-    // eggs, are , good, forhealth   ,
-    //,asdaq,ddd,zzzz,x,c,vvv,,, fg
-    //  foreach ($array as $value) {
-    //      echo "$value ";
-    //      echo '<br>'; 
-    //    }
        return $array; 
-      
-    // if(substr($str, $prevspot, $count - $prevspot))
-    //         { $stt= substr($str, $prevspot, $count- $prevspot);
-    //             echo"success $stt";
-    //             echo '<br>';
-    //         }
-    //         else
-    //         {
-
-    //             echo"failure";
-    //             echo '<br>';
-    //         }
 }
