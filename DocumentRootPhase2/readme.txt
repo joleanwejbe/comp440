@@ -15,7 +15,9 @@ Maya:
 - Created demo instance video
 
 Vardan:
-
+- Contributed toward blog post page
+- Contributed for commentshow page
+- Helped with debugging 
 
 Current Tasks in Progress:
 
