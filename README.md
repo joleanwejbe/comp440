@@ -1,3 +1,5 @@
+This is mainly a template we can potentially use for resumes and such but it's not needed. Anyways it's just me being extra. 
+
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
