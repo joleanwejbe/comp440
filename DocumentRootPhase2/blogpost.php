@@ -19,19 +19,16 @@
 
     	$tags = stripslashes($_REQUEST['tags']);
 	$tags = mysqli_real_escape_string($con, $tags);
-        $tagsClean = explode(",",$tags);
+        $tags = str_replace('.','',$tags);
+	//echo "$tags"
+	$tagsClean = explode(",",$tags);
 
 	$queryCheck = "SELECT pdate FROM `blogs` WHERE pdate='$pdate'";
 	$resultDupes = mysqli_query($con, $queryCheck);
         if(mysqli_num_rows($resultDupes) > 2){
                 
 		$_SESSION['postSubmit'] = "Posted twice today. Maximum post limit reached.";
-		//echo "
-                //    <h3>Posted twice today.</h3>
-                //    <p class='link'>Click here to see your <a href='blog.php'> blog</a> posts </p>
-                //    ";
 		header("Location: blog.php");
-		//exit();
         }
 	    else
         {
@@ -54,9 +51,14 @@
 
 	foreach($tagsClean as $tag)
 	{
-	    $queryBlogTag = "INSERT into `blogstags`(blogid,tag)
+		$stmt = $con->query('SELECT * FROM blogstags WHERE tag=$tag');
+
+		if ($stmt->num_rows == 0){
+	    	$queryBlogTag = "INSERT into `blogstags`(blogid,tag)
                      VALUES ('$blogID','$tag')";
-            $result2 = mysqli_query($con, $queryBlogTag);
+            	$result2 = mysqli_query($con, $queryBlogTag);
+	
+		}
 	} 
 	   $_SESSION['postSubmit'] = 'Blog Post Successfully Submitted';
 	    header("Location: blog.php");
