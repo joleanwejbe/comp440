@@ -3,19 +3,27 @@ Fall 2022
 COMP 440-21050-FA2022
 Mahdi Ebrahimi
 Student Contributions
+For Phase 2 of the Project
 
 
 Jolean:
 
 
 Maya:
+From Previous Iteration
 - Implemented UI Design
-- Implemented password match checking
 - Made database username or email duplicates code reduced
 - Created demo instance video
+- Code review  
+Phase 2 Iteration Contributions
+- Comment portion development
+- Blog post list development
+- Home page button development
 
 Vardan:
-
+- Contributed toward blog post page
+- Contributed for commentshow page
+- Helped with debugging 
 
 Current Tasks in Progress:
 
@@ -24,13 +32,3 @@ Mandatory:
 
 Optional:
 - Further sanitizing user input
-- UI/UX refining
-- profile.php does not work 
-- 
-
-Other Notes:
-
-Maya:
-- I am currently running these files on docker
-	- I do not know how deep it affects the grading and criteria
-
