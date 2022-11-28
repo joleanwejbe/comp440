@@ -42,3 +42,6 @@ Phase 2:
 - Contributed for commentshow page
 - Helped with debugging 
 Phase 3:
+-Debugging 
+-Code analayseing for potential bugs
+-researching and attempting to find ways to improve initialtable.php 
