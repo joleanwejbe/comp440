@@ -43,5 +43,5 @@ Phase 2:
 - Helped with debugging 
 Phase 3:
 -Debugging 
--Code analayseing for potential bugs
--researching and attempting to find ways to improve initialtable.php 
+-Code analysis for potential bugs
+-Researching and attempting to find ways to improve initialtable.php 
